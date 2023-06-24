@@ -48,7 +48,13 @@ app.get("/tweets", (req, res) => {
         const {avatar} = user.find(user => user.username === tweet.username);
         return {...tweet, avatar};
     })
-    return res.send(updatedTweets.reverse().slice(0, 10));
+    if (updatedTweets.length < 1) {
+        return res.send([]);
+    } else if (updatedTweets.length < 10) {
+        return res.send(updatedTweets.reverse());
+    } else {
+        return res.send(updatedTweets.reverse().slice(0, 10));
+    }
 });
 
 
