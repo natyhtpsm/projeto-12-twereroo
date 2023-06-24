@@ -17,6 +17,9 @@ app.post("/sign-up", (req, res) => {
     if(!username || !avatar){
         return res.status(400).send("Preencha todos os campos");
     }
+    if(user.includes(username)){
+        return res.status(401).send("Usuário já existe");
+    }
     user.push({
         username: username,
         avatar: avatar
