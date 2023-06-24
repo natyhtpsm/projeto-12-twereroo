@@ -5,8 +5,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const user = [{username:"bobesponja", avatar:"avataaaaaaaar"}];
-const tweets = [{username:"bobesponja", tweet: "kdhjadasjgdjhagdj"}];
+const user = [];
+const tweets = [];
 
 app.get("/", (req, res) => {
     res.status(400).send("TEXTO");
